@@ -10,6 +10,20 @@ if [[ "$1" == "--logs" ]]; then
     done
 fi
 
+REPO_URL="https://github.com/hisumii/Podstawa-praca-z-GIT.git"
+
+if [[ "$1" == "--init" ]]; then
+    if [ "$(ls -A .)" ]; then
+        echo "Bieżący katalog nie jest pusty."
+        exit 1
+    fi
+
+    git clone "$REPO_URL" .
+
+    export PATH="$(pwd):$PATH"
+    echo "Dodano $(pwd) do PATH"
+    echo "export PATH=\"$(pwd):\$PATH\""
+fi
 
 show_help() {
     echo "Użycie: $0 [opcje]"
