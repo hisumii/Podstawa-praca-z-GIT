@@ -10,6 +10,13 @@ if [[ "$1" == "--logs" ]]; then
     done
 fi
 
+if [[ "$1" == "--error" ]]; then
+    count=${2:-100}
+    for ((i=1; i<=count; i++)); do
+        echo -e "Nazwa pliku: error$i.txt\nNazwa skryptu: $0\nData: $(date "+%Y-%m-%d %H:%M:%S")" > error$i.txt
+    done
+fi
+
 REPO_URL="https://github.com/hisumii/Podstawa-praca-z-GIT.git"
 
 if [[ "$1" == "--init" ]]; then
